@@ -3,10 +3,13 @@ import { env } from "hono/adapter";
 import { handle } from "hono/vercel";
 import { TEnvConfig } from "@/types";
 import { Redis } from "@upstash/redis/cloudflare";
+import { cors } from "hono/cors";
 
 export const runtime = "edge";
 
 const app = new Hono().basePath("/api");
+
+app.use("/*", cors());
 
 app.get("/search", async (context) => {
     try {
