@@ -23,12 +23,15 @@ export default function Home() {
     }
     fetchData();
   }, [input]);
+  
   return (
     <div>
       <input
+        type="text" 
         value={input}
+        className="text-zinc-900"
         onChange={(event) => setInput(event.target.value)}
-        type="text" />
+        />
     </div>
   );
 }
