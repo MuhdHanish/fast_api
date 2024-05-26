@@ -1,6 +1,6 @@
 export const fetchCountries = async (query: string, setError: (error: string) => void) => {
     try {
-        const response = await fetch(`/api/search?q=${query}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/search?q=${query}`);
         if (response.ok) {
             return await response.json();
         } else {
