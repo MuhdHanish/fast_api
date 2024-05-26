@@ -38,3 +38,6 @@ next-env.d.ts
 
 # constance data
 data.ts
+
+# un-official helper
+seed.ts
