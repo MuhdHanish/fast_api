@@ -10,9 +10,9 @@ const app = new Hono().basePath("/api");
 
 app.get("/search", async (context) => {
     try {
-        const query = context.req.query("query")?.toUpperCase();
+        const query = context.req.query("q")?.toUpperCase();
         if (!query) return context.json({ message: "Invalid Search Query" }, 400);
-        
+
         const { UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN } = env<TEnvConfig>(context);
         const redis = new Redis({
             url: UPSTASH_REDIS_REST_URL,
@@ -20,7 +20,7 @@ app.get("/search", async (context) => {
         });
 
         const startTime = performance.now();
-        
+
         const results: string[] = [];
         const rank = await redis.zrank("terms", query);
         if (rank !== null && rank !== undefined) {
