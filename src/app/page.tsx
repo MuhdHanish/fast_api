@@ -3,7 +3,14 @@
 import { TSearchResult } from "@/types";
 import { fetchCountries } from "@/utils";
 import { useEffect, useState } from "react";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -30,7 +37,7 @@ export default function Home() {
   return (
     <main className="h-screen w-screen grainy">
       <div className="flex flex-col gap-6 items-center pt-32 duration-500 animate-in animate fade-in-5 slide-in-from-bottom-2.5">
-        <h1 className="text-5xl tracking-tight font-bold">Speed Search</h1>
+        <h1 className="text-5xl tracking-tight font-bold">Speed Search ⚡️</h1>
         <p className="text-zinc-600 text-lg max-w-prose text-center">
           A Hight-Performance API Built With Hono, Next.JS & Cloudflare. <br />
           <span className="text-base">
@@ -46,11 +53,12 @@ export default function Home() {
               className="placeholder:text-zinc-500"
             />
             <CommandList>
-              {
-                !searchResults?.results.length ? input && !error && <CommandEmpty>No Results Found !</CommandEmpty>
-                  : input && <CommandGroup heading="Results">
-                    {
-                      searchResults?.results.map((result) => (
+              {!searchResults?.results.length
+                ? input &&
+                  !error && <CommandEmpty>No Results Found !</CommandEmpty>
+                : input && (
+                    <CommandGroup heading="Results">
+                      {searchResults?.results.map((result) => (
                         <CommandItem
                           key={result}
                           value={result}
@@ -58,11 +66,23 @@ export default function Home() {
                         >
                           {result}
                         </CommandItem>
-                      ))
-                    }
-                  </CommandGroup>
-              }
-              {error && input && <CommandEmpty><span className="text-red-600">{error}</span></CommandEmpty>}
+                      ))}
+                    </CommandGroup>
+                  )}
+              {searchResults?.results.length > 0 && input && (
+                <>
+                  <div className="h-px w-full bg-zinc-200" />
+                  <p className="p-2 text-xs text-zinc-500">
+                    Found {searchResults?.results.length} results in{" "}
+                    {searchResults?.duration.toFixed(0)}ms
+                  </p>
+                </>
+              )}
+              {error && input && (
+                <CommandEmpty>
+                  <span className="text-red-600">{error}</span>
+                </CommandEmpty>
+              )}
             </CommandList>
           </Command>
         </div>
