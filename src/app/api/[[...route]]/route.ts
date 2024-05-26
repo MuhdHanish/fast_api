@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { env } from "hono/adapter";
 import { handle } from "hono/vercel";
 import { TEnvConfig } from "@/types";
-import { Redis } from "@upstash/redis";
+import { Redis } from "@upstash/redis/cloudflare";
 
 export const runtime = "edge";
 
