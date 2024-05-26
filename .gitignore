@@ -41,3 +41,6 @@ data.ts
 
 # un-official helper
 seed.ts
+
+# deployment couldflar
+wrangler.toml
