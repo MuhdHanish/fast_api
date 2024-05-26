@@ -1,0 +1,7 @@
+name='Your Api Name'
+
+compatibility_date='Your Durability Date'
+
+[vars]
+UPSTASH_REDIS_REST_URL='Your upstash redis rest url'
+UPSTASH_REDIS_REST_TOKEN'Your upstash redis rest token'
