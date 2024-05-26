@@ -27,6 +27,14 @@ export default function Home() {
   return (
     <main className="h-screen w-screen grainy">
       <div className="flex flex-col gap-6 items-center pt-32 duration-500 animate-in animate fade-in-5 slide-in-from-bottom-2.5">
+        <h1 className="text-5xl tracking-tight font-bold">Speed Search</h1>
+        <p className="text-zinc-600 text-lg max-w-prose text-center">
+          A Hight-Performance API Built With Hono, Next.JS & Cloudflare. <br />
+          <span className="text-base">Type A Qurey Below & Get Your Results In Miliseconds</span>
+        </p>
+        <div className="max-w-md w-full">
+          
+        </div>
         <input
           type="text"
           value={input}
