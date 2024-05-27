@@ -1,6 +1,6 @@
 name='Your Api Name'
 
-compatibility_date='Your Durability Date'
+compatibility_date='Your Compatibility Date'
 
 [vars]
 UPSTASH_REDIS_REST_URL='Your upstash redis rest url'
