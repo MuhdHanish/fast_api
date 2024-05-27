@@ -19,5 +19,6 @@ export const fetchCountries = async (query: string, setError: (error: string) =>
         }
     } catch (error) {
         setError(error instanceof Error ? error.message : `The server may be experiencing issues. Please try again later.`);
+        throw error;
     }
 };
